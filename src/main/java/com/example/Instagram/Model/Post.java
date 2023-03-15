@@ -4,7 +4,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
-import java.security.Timestamp;
+import java.sql.Timestamp;
 
 @Data
 @AllArgsConstructor
@@ -24,7 +24,7 @@ public class Post {
     private Timestamp updateDate;
 
     @Column(name="PostDate")
-    private Timestamp postDate;
+    private String postDate;
 
     @JoinColumn(name="UserId")
     @ManyToOne
