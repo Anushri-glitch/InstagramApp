@@ -22,11 +22,12 @@ public class PostController {
     @Autowired
     PostService postService;
 
-    @PostMapping(value="/user")
+    @PostMapping(value="/post")
+    //URL - localhost:8080/post
     public ResponseEntity<String> savePost(@RequestBody String postRequest){
         Post post = setPost(postRequest);
         int postId = postService.savePost(post);
-        return new ResponseEntity<>("user saved with Id - " + postId, HttpStatus.CREATED);
+        return new ResponseEntity<>("post saved with Id - " + postId, HttpStatus.CREATED);
     }
 
     private Post setPost(String postRequest) {
@@ -42,8 +43,8 @@ public class PostController {
         }
 
         Post post = new Post();
-        post.setUserId(user);
-        post.setPostDate(jsonObject.getString("postDate"));
+        post.setUser(user);
+        post.setPostData(jsonObject.getString("postData"));
         Timestamp createdTime = new Timestamp(System.currentTimeMillis());
         post.setCreateDate(createdTime);
         return post;

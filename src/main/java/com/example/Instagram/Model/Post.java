@@ -1,9 +1,8 @@
 package com.example.Instagram.Model;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-
-import javax.persistence.*;
 import java.sql.Timestamp;
 
 @Data
@@ -23,11 +22,11 @@ public class Post {
     @Column(name="UpdateDate")
     private Timestamp updateDate;
 
-    @Column(name="PostDate")
-    private String postDate;
+    @Column(name="PostData")
+    private String postData;
 
     @JoinColumn(name="UserId")
-    @ManyToOne
-    private User userId;
+    @ManyToOne(fetch = FetchType.LAZY)
+    private User user;
 
 }

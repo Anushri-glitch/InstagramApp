@@ -2,6 +2,10 @@ package com.example.Instagram.Controller;
 
 import com.example.Instagram.Model.User;
 import com.example.Instagram.Service.UserService;
+import com.example.Instagram.dto.SignInInput;
+import com.example.Instagram.dto.SignInOutput;
+import com.example.Instagram.dto.SignUpInput;
+import com.example.Instagram.dto.SignUpOutput;
 import org.json.JSONArray;
 import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,6 +20,18 @@ public class UserController {
 
     @Autowired
     UserService userService;
+
+    //SignUp
+    @PostMapping("/signup")
+    public SignUpOutput signUp (@RequestBody SignUpInput signUpDto){
+        return userService.signUp(signUpDto);
+    }
+
+    //SignIn
+    @PostMapping("/signIn")
+    public SignInOutput signIn (@RequestBody SignInInput signInDto){
+        return userService.signIn(signInDto);
+    }
 
     @PostMapping(value="/user")
     public ResponseEntity<String> saveUser(@RequestBody String userData){
@@ -41,11 +57,11 @@ public class UserController {
         JSONObject jsonObject = new JSONObject(userData);
         User user = new User();
 
-        user.setAge(jsonObject.getInt("age"));
-        user.setEmail(jsonObject.getString("Email"));
-        user.setFirstName(jsonObject.getString("FirstName"));
-        user.setLastName(jsonObject.getString("LastName"));
-        user.setPhoneNumber(jsonObject.getString("phoneNumber"));
+        user.setUserAge(jsonObject.getInt("age"));
+        user.setUserEmail(jsonObject.getString("Email"));
+        user.setUserFirstName(jsonObject.getString("FirstName"));
+        user.setUserLastName(jsonObject.getString("LastName"));
+        user.setUserPhoneNumber(jsonObject.getString("phoneNumber"));
 
         return user;
     }
