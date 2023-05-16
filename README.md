@@ -282,15 +282,19 @@ public class SignInOutput {
 
 :arrow_right: User table
  ```sql
- select * from user;
-+---------+-------------------+-----------+-------+-----------+
-| user_id | email             | password  | phone | user_name |
-+---------+-------------------+-----------+-------+-----------+
-|       1 | Anuhska@gmail.com | Anushka01 | 8091  | Anushka   |
-|       2 | Richa@gmail.com   | Richa01   | 8091  | Richa     |
-+---------+-------------------+-----------+-------+-----------+
+ select * from tabl_user;
++---------+----------+----------------------+------------+------------+------------+----------------------------------+
+| user_id | user_age | user_email           | first_name | last_name  | user_phone | user_password                    |
++---------+----------+----------------------+------------+------------+------------+----------------------------------+
+|       1 |       30 | shurbhi12@gmail.com  | Shurbhi    | Srivastava | 1234567890 | shurbhi@1234                     |
+|       2 |      100 | KeshavYogi@gmail.com | Keshav     | Yoginath   | 8081009534 | NULL                             |
+|       3 |       45 | Anas@gmail.com       | Anas       | Khan       | 9111009534 | NULL                             |
+|       4 |       67 | Rupali@gmail.com     | Rupali     | Jagga      | 9000009534 | NULL                             |
+|       5 |       68 | Arunima@gmail.com    | Arunima    | Trivedi    | 9000112893 | NULL                             |
+|      52 |       24 | Anushk12@gmail.com   | Anushka    | Srivastava | 1234567890 | 914A95E82726268ABE44CEE8D6654618 |
++---------+----------+----------------------+------------+------------+------------+----------------------------------+
 ```
-:arrow_right: Product Table 
+:arrow_right: Post Table 
 ```sql
  select * from product;
 +------------+-----------------+----------+-------------------------------+-------+---------------------+
@@ -308,51 +312,41 @@ public class SignInOutput {
 :arrow_right: Address Table 
 
 ```sql
- select * from address;
-+------------+--------------+----------+--------------+---------------+---------+---------+
-| address_id | address_name | landmark | phone_number | state         | zipcode | user_id |
-+------------+--------------+----------+--------------+---------------+---------+---------+
-|          1 | Alopibag     | Chauraha | 8091         | Uttar Pradesh | 211018  |       1 |
-|          2 | Beniganj     | Chauraha | 8091         | Uttar Pradesh | 211020  |       2 |
-+------------+--------------+----------+--------------+---------------+---------+---------+
+ select * from table_post;
++---------+-------------------------+-----------+-------------+---------+--------------------------------------------------+
+| post_id | created_date            | post_date | update_date | user_id | post_data                                        |
++---------+-------------------------+-----------+-------------+---------+--------------------------------------------------+
+|       6 | 2023-03-16 13:17:16.725 | NULL      | NULL        |       1 | this is essential data which is hiding by admin. |
+|       7 | 2023-03-16 13:18:29.099 | NULL      | NULL        |       1 | this is essential data which is hiding by admin. |
+|       8 | 2023-03-16 13:32:40.327 | NULL      | NULL        |       2 | Life is Essential                                |
+|       3 | 2023-05-16 12:45:41.418 | NULL      | NULL        |       1 | I Am The Best!!!                                 |
++---------+-------------------------+-----------+-------------+---------+--------------------------------------------------+
 ```
-:arrow_right: Orders Table 
+:arrow_right: AuthenticationToken Table 
 
 ```sql
- select * from orders;
-+----------+------------------+------------+------------+---------+
-| order_id | product_quantity | address_id | product_id | user_id |
-+----------+------------------+------------+------------+---------+
-|        1 |                5 |          1 |          3 |       1 |
-|        2 |                5 |          2 |          1 |       2 |
-+----------+------------------+------------+------------+---------+
+ select * from authentication_token;
++----------+--------------------------------------+---------------------+------------+
+| token_id | token                                | token_creation_date | fk_user_id |
++----------+--------------------------------------+---------------------+------------+
+|        1 | 98e04d49-6aff-46f5-8020-6fe24a652ec9 | 2023-05-15          |         52 |
++----------+--------------------------------------+---------------------+------------+
 ```
 ----------------------------------------------------------------------------------------------------------------------------------------------------------
 ## :six: Project Summary
 ### :o: Project result 
-#### :purple_square: SAVE USER : http://localhost:8080/user
-![Screenshot (783)](https://github.com/Anushri-glitch/Ecommerce-Application/assets/47708011/6d0162a6-a690-47cf-be5b-2e7b745d189d)
+#### :purple_square: USER SIGNUP : http://localhost:8080/api/v1/userApp/signup
+![Screenshot (801)](https://github.com/Anushri-glitch/InstagramApp/assets/47708011/9659b502-3911-4b59-8f07-b283a84322e7)
 
-#### :purple_square: SAVE PRODUCT : http://localhost:8080/product
-![Screenshot (784)](https://github.com/Anushri-glitch/Ecommerce-Application/assets/47708011/bb59f5a4-14ac-4b86-a98b-1f6bc70b1186)
+#### :purple_square: USER SIGNIN : http://localhost:8080/api/v1/userApp/signIn
+![Screenshot (802)](https://github.com/Anushri-glitch/InstagramApp/assets/47708011/0e78c90b-f79b-4097-a266-93b845924460)
 
-#### :purple_square: SAVE ADDRESS : http://localhost:8080/address
-![Screenshot (785)](https://github.com/Anushri-glitch/Ecommerce-Application/assets/47708011/b6435d5f-d085-48cd-9fa5-62f755bb635d)
+#### :purple_square: UPDATE USER : http://localhost:8080/api/v1/userApp/updateUser/1
+![Screenshot (803)](https://github.com/Anushri-glitch/InstagramApp/assets/47708011/05fd46cc-6ba6-4f31-9be0-f3f610665ac6)
 
-#### :purple_square: SAVE ORDERS : http://localhost:8080/orders
-![Screenshot (786)](https://github.com/Anushri-glitch/Ecommerce-Application/assets/47708011/cd59ec7f-4366-47de-8202-3e2ab5ec26d9)
+#### :purple_square: SAVE POST : http://localhost:8080/post
+![Screenshot (804)](https://github.com/Anushri-glitch/InstagramApp/assets/47708011/0e90699c-5f34-4671-ad28-81ea505e6c0b)
 
-#### :purple_square: FIND ORDER BY ORDERID : http://localhost:8080/employee
-![Screenshot (789)](https://user-images.githubusercontent.com/47708011/236825054-6614b006-9659-41ee-bedb-0e24931e2b8d.png)
-
-#### :purple_square: FIND USER BY USERID : http://localhost:8080/employeeId
-![Screenshot (798)](https://user-images.githubusercontent.com/47708011/236825714-388a9185-487d-4c5f-922b-439dcadd9041.png)
-
-#### :purple_square: FIND ALL PRODUCTS BASED ON CATEGORY : http://localhost:8080/employee
-![Screenshot (790)](https://user-images.githubusercontent.com/47708011/236825981-0086490b-c829-48e0-a5bf-19a5a3717fa5.png)
-
-#### :purple_square: DELETE PRODUCTS BASED ON PRODUCTID : http://localhost:8080/employee
-![Screenshot (791)](https://user-images.githubusercontent.com/47708011/236826279-6db1cdea-d5ec-43a2-9769-d60c211a87f5.png)
 ----------------------------------------------------------------------------------------------------------------------------------------------------------
 
 
