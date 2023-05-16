@@ -33,12 +33,12 @@ public class UserController {
         return userService.signIn(signInDto);
     }
 
-    @PostMapping(value="/user")
-    public ResponseEntity<String> saveUser(@RequestBody String userData){
-        User user = setUser(userData);
-        int userId = userService.saveUser(user);
-        return new ResponseEntity<>("user saved with Id - " + userId, HttpStatus.CREATED);
-    }
+//    @PostMapping(value="/user")
+//    public ResponseEntity<String> saveUser(@RequestBody String userData){
+//        User user = setUser(userData);
+//        int userId = userService.saveUser(user);
+//        return new ResponseEntity<>("user saved with Id - " + userId, HttpStatus.CREATED);
+//    }
 
     @GetMapping("getUser")
     public ResponseEntity<String> getUser(@Nullable @RequestParam String userId){
@@ -57,11 +57,12 @@ public class UserController {
         JSONObject jsonObject = new JSONObject(userData);
         User user = new User();
 
-        user.setUserAge(jsonObject.getInt("age"));
-        user.setUserEmail(jsonObject.getString("Email"));
-        user.setUserFirstName(jsonObject.getString("FirstName"));
-        user.setUserLastName(jsonObject.getString("LastName"));
-        user.setUserPhoneNumber(jsonObject.getString("phoneNumber"));
+        user.setUserFirstName(jsonObject.getString("userFirstName"));
+        user.setUserLastName(jsonObject.getString("userLastName"));
+        user.setUserAge(jsonObject.getInt("userAge"));
+        user.setUserEmail(jsonObject.getString("userEmail"));
+        user.setUserPassword(jsonObject.getString("userPassword"));
+        user.setUserPhoneNumber(jsonObject.getString("userPhoneNumber"));
 
         return user;
     }

@@ -5,6 +5,8 @@ import com.example.Instagram.Model.Post;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class PostService {
 
@@ -13,5 +15,9 @@ public class PostService {
     public int savePost(Post post) {
         Post savedPost = postRepository.save(post);
         return savedPost.getPostId();
+    }
+
+    public List<Post> getPost() {
+        return postRepository.findAll();
     }
 }

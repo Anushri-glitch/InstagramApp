@@ -34,8 +34,7 @@ public class User {
     @Column(name="userPhone")
     private String userPhoneNumber;
 
-    public User(String userFirstName, String userLastName,
-                Integer userAge, String userEmail, String userPassword, String userPhoneNumber) {
+    public User(String userFirstName, String userLastName,Integer userAge, String userEmail, String userPassword, String userPhoneNumber) {
         this.userFirstName = userFirstName;
         this.userLastName = userLastName;
         this.userAge = userAge;

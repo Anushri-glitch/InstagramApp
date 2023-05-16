@@ -11,9 +11,9 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.sql.Timestamp;
+import java.util.List;
 
 @RestController
-//@RequestMapping("api/v1/userApp")
 public class PostController {
 
     @Autowired
@@ -28,6 +28,11 @@ public class PostController {
         Post post = setPost(postRequest);
         int postId = postService.savePost(post);
         return new ResponseEntity<>("post saved with Id - " + postId, HttpStatus.CREATED);
+    }
+
+    @GetMapping(value = "/post")
+    public List<Post> getPost(){
+        return postService.getPost();
     }
 
     private Post setPost(String postRequest) {
